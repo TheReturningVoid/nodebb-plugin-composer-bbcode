@@ -178,16 +178,9 @@ define('composer', [
 
 		var escapedTitle = (title || '').replace(/([\\`*_{}\[\]()#+\-.!])/g, '\\$1').replace(/\[/g, '&#91;').replace(/\]/g, '&#93;').replace(/%/g, '&#37;').replace(/,/g, '&#44;');
 
-		if (text) {
-			text = '> ' + text.replace(/\n/g, '\n> ') + '\n\n';
-		}
 		var link = '[' + escapedTitle + '](' + config.relative_path + '/post/' + (selectedPid || toPid) + ')';
 		if (uuid === undefined) {
-			if (title && (selectedPid || toPid)) {
-				composer.newReply(tid, toPid, title, '[[modules:composer.user_said_in, ' + username + ', ' + link + ']]\n' + text);
-			} else {
-				composer.newReply(tid, toPid, title, '[[modules:composer.user_said, ' + username + ']]\n' + text);
-			}
+			composer.newReply(tid, toPid, title, `[quote=${selectedPid || toPid}:${username}]${text}[/quote]\n`);
 			return;
 		} else if (uuid !== composer.active) {
 			// If the composer is not currently active, activate it
@@ -197,11 +190,7 @@ define('composer', [
 		var postContainer = $('#cmp-uuid-' + uuid);
 		var bodyEl = postContainer.find('textarea');
 		var prevText = bodyEl.val();
-		if (title && (selectedPid || toPid)) {
-			translator.translate('[[modules:composer.user_said_in, ' + username + ', ' + link + ']]\n', config.defaultLang, onTranslated);
-		} else {
-			translator.translate('[[modules:composer.user_said, ' + username + ']]\n', config.defaultLang, onTranslated);
-		}
+		translator.translate(`[quote=${selectedPid || toPid}:${username}]${text}[/quote]\n`, config.defaultLang, onTranslated);
 
 		function onTranslated(translated) {
 			composer.posts[uuid].body = (prevText.length ? prevText + '\n\n' : '') + translated + text;

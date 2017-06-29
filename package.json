@@ -1,11 +1,11 @@
 {
-  "name": "nodebb-plugin-composer-default",
+  "name": "nodebb-plugin-composer-bbcode",
   "version": "4.4.17",
-  "description": "Default composer for NodeBB",
+  "description": "Default composer for NodeBB -- BBCode support",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NodeBB/nodebb-plugin-composer-default"
+    "url": "https://github.com/TheReturningVoid/nodebb-plugin-composer-bbcode"
   },
   "keywords": [
     "nodebb",
@@ -14,12 +14,11 @@
     "markdown"
   ],
   "author": {
-    "name": "NodeBB Team",
-    "email": "sales@nodebb.org"
+    "name": "TheReturningVoid"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NodeBB/nodebb-plugin-composer-default/issues"
+    "url": "https://github.com/TheReturningVoid/nodebb-plugin-composer-bbcode/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
