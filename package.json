@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-composer-bbcode",
-  "version": "4.4.17",
+  "version": "4.4.18",
   "description": "Default composer for NodeBB -- BBCode support",
   "main": "library.js",
   "repository": {
